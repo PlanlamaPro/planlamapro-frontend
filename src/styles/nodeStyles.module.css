@@ -1,0 +1,29 @@
+.start_node_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #2eb050;
+  height: 50px;
+  width: 110px;
+  background-color: #2eb050;
+  color: white;
+  border-radius: 5px;
+}
+
+.start_node_header {
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.start_node_time {
+  font-size: 0.6rem;
+}
+
+.start_handle_style {
+  background-color: #5c5c5c;
+  border: 1px solid #fff;
+  width: 8px;
+  height: 8px;
+}
