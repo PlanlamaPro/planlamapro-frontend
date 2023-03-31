@@ -20,7 +20,7 @@ const initialNodes = [
 ];
 
 const rfStyle = {
-  backgroundColor: "#FFFFFF",
+  backgroundColor: "#b1e1fc",
 };
 
 const initialEdges = [];
@@ -53,7 +53,7 @@ function Flow() {
   };
 
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <div style={{ height: "92vh", width: "80vw" }}>
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}
