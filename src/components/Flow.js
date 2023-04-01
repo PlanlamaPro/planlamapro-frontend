@@ -1,5 +1,5 @@
 import React from "react";
-import ReactFlow, { Controls, Background } from "reactflow";
+import ReactFlow, { Controls } from "reactflow";
 import "reactflow/dist/style.css";
 import { useState, useCallback } from "react";
 import { applyEdgeChanges, applyNodeChanges, addEdge } from "reactflow";
@@ -53,7 +53,7 @@ function Flow() {
   };
 
   return (
-    <div style={{ height: "92vh", width: "80vw" }}>
+    <div className="w-[80vw] sm:w-[100vw] h-[92vh] sm:h-[40vh] ">
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}
