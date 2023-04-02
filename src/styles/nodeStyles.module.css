@@ -27,3 +27,106 @@
   width: 8px;
   height: 8px;
 }
+.ara_node_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #2eb050;
+  height: 90px;
+  width: 110px;
+  background-color: #2eb050;
+  color: white;
+  border-radius: 5px;
+}
+
+.ara_node_header {
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.ara_node_time {
+  font-size: 0.6rem;
+}
+.ara_node_participant{
+  font-size: 0.5rem;
+  font-weight: bold;
+  
+
+}
+
+.ara_handle_style {
+  background-color: #5c5c5c;
+  border: 1px solid #fff;
+  width: 8px;
+  height: 8px;
+}
+.final_node_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #9f0a0a;
+  height: 50px;
+  width: 110px;
+  background-color: #9f0a0a;
+  color: white;
+  border-radius: 5px;
+}
+
+.final_node_header {
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.final_node_time {
+  font-size: 0.6rem;
+}
+
+.final_handle_style {
+  background-color: #5c5c5c;
+  border: 1px solid #fff;
+  width: 8px;
+  height: 8px;
+}
+.button_text_style{
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: rgb(0, 0, 0);
+}
+.modal {
+  font-size: 18px;
+}
+.modal_header {
+  width: 100%;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal_content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal_actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal_close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #0c01eb;
+  border-radius: 18px;
+  border: 1px solid #dd0000;
+}

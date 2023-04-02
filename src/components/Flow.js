@@ -1,21 +1,39 @@
 import React from "react";
-import ReactFlow, { Controls } from "reactflow";
+import ReactFlow, { Controls /*Background*/ } from "reactflow";
 import "reactflow/dist/style.css";
 import { useState, useCallback } from "react";
 import { applyEdgeChanges, applyNodeChanges, addEdge } from "reactflow";
 import StartNode from "./StartNode";
+import AraNode from "./AraNode";
+import FinalNode from "./FinalNode";
+import AraNode2 from "./AraNode2";
+import Popup from "reactjs-popup";
+//import styled, {ThemeProvider} from 'styled-components'
 
 const initialNodes = [
   {
     id: "node-1",
     type: "startEvent",
-    position: { x: 0, y: 0 },
+    position: { x: -150, y: 50 },
     data: { value: 123 },
   },
   {
-    id: "node-2",
-    position: { x: 0, y: 0 },
-    data: { label: "Öylesine" },
+    id: "node 2",
+    type: "araNode",
+    position: { x: 0, y: 30 },
+    data: { value: 123 },
+  },
+  {
+    id: "node 3",
+    type: "araNode2",
+    position: { x: -50, y: 150 },
+    data: { value: 123 },
+  },
+  {
+    id: "node 4",
+    type: "finalEvent",
+    position: { x: 120, y: 150 },
+    data: { value: 123 },
   },
 ];
 
@@ -24,8 +42,21 @@ const rfStyle = {
 };
 
 const initialEdges = [];
+const Tooltip = () => (
+  <Popup
+    trigger={(open) => (
+      <araNode className="araNode">{open ? "Opened" : "Closed"}</araNode>
+    )}>
+    <span>Katilimci Sayisi</span>
+  </Popup>
+);
 
-const nodeTypes = { startEvent: StartNode };
+const nodeTypes = {
+  startEvent: StartNode,
+  araNode: AraNode,
+  finalEvent: FinalNode,
+  araNode2: AraNode2,
+};
 
 function Flow() {
   const [nodes, setNodes] = useState(initialNodes);
@@ -64,7 +95,7 @@ function Flow() {
         nodeTypes={nodeTypes}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}>
-        {/* <Background /> */}
+        {/* <Background />*/}
         <Controls />
       </ReactFlow>
     </div>
