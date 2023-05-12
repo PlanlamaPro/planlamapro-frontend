@@ -25,9 +25,7 @@
     margin-left: 10px;
   }
   
-  ul{
-    list-style-type: none;
-  }
+  
   
   .navbar-list{
     list-style-type: none;
@@ -36,7 +34,7 @@
     justify-content: space-between;
   }
   
-  li{
+  .navbar-list li{
     width: 100px;
     padding: 5px;
     margin: 0 5px;
@@ -47,10 +45,9 @@
     
   }
   
-  li:hover{
+  .navbar-list li:hover{
     color: #dbeff9;
-    background: linear-gradient(to right, #08a6f5, #03618f);
-    
+    background: linear-gradient(to right, #08a6f5, #03618f); 
   }
   
   .link{
@@ -94,9 +91,82 @@
     background-color: #dbeff9;
   }
   
+  /* Yeni Eklentiler */
+  .navbarMobileEngine {
+    display: grid;
+  }
+
+  .navbarMobile{
+    background-color: #03496c;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbarMobile .logodiv{
+    display: flex;
+  }
+
+  .navbarMobile .logo {
+    height: 50px;
+  }
+  .navbarMobile .logoName {
+    color: white;
+    padding-left: 5px;
+    align-items: center;
+    font-size: 20px;
+    display: table-cell;
+    padding: 10px;
+  }
+
+  .navbarMobile .buttonDiv{
+    margin-right: 20px;
+  }
+
+  .navbarMobile .windowButton {
+    width: 50px;
+    height: 50px;
+    background-color: #03496c;
+    border: none; /* kenarlık yok */
+    text-align: center; /* metin hizalama */
+    text-decoration: none; /* alt çizgi yok */
+    display: inline-block; /* blok element */
+    cursor: pointer; /* imleç türü */
+  }
+
+  .navbarMobile .windowButton .buttonIcon {
+    width: 40px;
+  }
+
+  .modal {
+    background-color: #09577d;
+    padding: 0;
+    margin: 0;
+  }
   
+  .modal .modal-list{
+    display: contents;
+    list-style-type: none;
+    list-style: none;
+  }
+
+  .modal-list li{
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    
+  }
   
-  
+  .modal-link{
+    text-decoration: none;
+    color: black;
+  }
+
+  .modal-user{
+    text-align: center;
+    justify-content: center;
+    color: white;
+  }
+
   
   
   
