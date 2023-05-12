@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(143, 222, 241);
+}
+
+.border {
+  background-color: #fff;
+  border-radius: 1rem;
+  margin: auto;
+  margin-top: 8%;
+  padding: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  width: 23rem;
+}
+
+.align {
+  padding: 1rem;
+  text-align: center;
+}
