@@ -1,12 +1,12 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-import './SignUp.css';
+import Box from '@mui/material/Box';
+import '../styles/SignUp.css';
 
 export default function InputAdornments() {
 

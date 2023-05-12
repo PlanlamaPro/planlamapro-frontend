@@ -1,8 +1,8 @@
 import React from 'react';
-import './HomePage.css';
-import Grid from '@mui/material/Grid';
-import resim1 from "../images/img1.jpg";
 import { FaCheckCircle } from 'react-icons/fa';
+import resim1 from "../images/img1.jpg";
+import Grid from '@mui/material/Grid';
+import '../styles/HomePage.css';
 
 const HomePage = () => {
   return (
