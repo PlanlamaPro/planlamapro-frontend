@@ -1,8 +1,18 @@
-import Flow from "./components/Flow";
-import "./App.css";
+
+import './App.css';
+import Navbar from './Navbar/navbar';
+
 
 function App() {
-  return <Flow></Flow>;
+
+
+  return (  
+    <div>
+      <Navbar />
+    </div>
+
+    
+  );
 }
 
 export default App;
