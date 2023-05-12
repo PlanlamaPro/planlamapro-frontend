@@ -83,4 +83,4 @@ function App() {
   );
 }
 
-export default Navbar;
+export default App;
