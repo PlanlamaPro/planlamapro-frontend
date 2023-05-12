@@ -147,7 +147,43 @@ function App() {
         </div>
       </div>
 
-      
+    <footer className='footer'>
+        <div className='container'>
+          <div className='row'>
+            
+            <div className='col'>
+              <h4>Yararlı Linkler</h4>
+              <ul>
+                <li><a href='#'>Mert Büyükaksoy</a></li>
+                <li><a href='#'>Erdal Nayır</a></li>
+                <li><a href='#'>Ahmet</a></li>
+              </ul>
+            </div>
+            <div className='col'>
+              <h4>Yararlı Linkler</h4>
+              <ul>
+                
+                <li><a href='#'>Mustafa Erhan Portakal</a></li>
+                <li><a href='#'>Eda Dural</a></li>
+              </ul>
+            </div>
+            <div className='col'>
+              <h4>Bizi Takip Edin</h4>
+              <div className='social-links'>
+                <a href='#'><i className='fab fa-facebook-f'></i></a>
+                <a href='#'><i className='fab fa-facebook-f'></i></a>
+                <a href='#'><i className='fab fa-facebook-f'></i></a>
+                <a href='#'><i className='fab fa-facebook-f'></i></a>
+              </div>
+            </div>
+            <div className='col lib'>
+              © 2023 PlanlamaPro Tüm hakları saklıdır.
+            </div>
+            
+          </div>
+        </div>
+            
+      </footer>      
       
     </Router>
 
