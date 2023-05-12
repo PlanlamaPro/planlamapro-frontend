@@ -4,16 +4,13 @@ import './navbar.css';
 import logo from '../Logo/planlamaproLogo.png';
 import logo2 from '../Logo/planlamaproLogoMini.png';
 import React, { useState, useEffect } from "react";
-//Son Eklenen
 import icon from '../Logo/button_icon.png';
 
 function App() {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showText, setShowText] = useState(true);
-  //yeni eklenti
   const [changeNav, setChangeNav] = useState(true);
-  //Bitiş
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -32,7 +29,6 @@ function App() {
 
   let logoSrc = windowWidth < 785 ? logo : logo2;
 
-  //Son Eklemeler
   useEffect(() => {
     if (windowWidth < 655) {
       setChangeNav(false);
@@ -47,22 +43,15 @@ function App() {
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-  //Son Eklemeler
-
 
   return (  
-    <Router> 
-
-
-      
+    <Router>     
       {changeNav == true ? (
         <div className='router'>
         <div className='logodiv'>
           <img className='logo' src={logoSrc} alt="Logo" />
           {showText && <h4 className='logoName'>PlanlamaPro</h4>}
-        </div>
-      
-        
+        </div>        
           <div className='navbar'>
             <nav>
               <ul className='navbar-list'>
