@@ -1,16 +1,26 @@
 body {
   background-color: rgb(143, 222, 241);
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
 }
 
 .border {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
   background-color: #fff;
   border-radius: 1rem;
   margin: auto;
-  margin-top: 8%;
   padding: 2rem;
-  padding-top: 4rem;
+  padding-top: 2rem;
   padding-bottom: 4rem;
   width: 23rem;
+}
+
+.linkColor {
+  color: rgb(67, 78, 230);
 }
 
 .align {
