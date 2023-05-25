@@ -10,10 +10,10 @@ const HomePage = () => {
     <div class="bg">
       <div class="header1">
         <h1 class="ortak h2 companyName">PlanlamaPro</h1>
-        <Link to="/signup" className="login-btn ortak color">
+        <Link to="/login" className="login-btn ortak color">
           Giriş Yap
         </Link>
-        <Link to="/signin" className="register-btn ortak">
+        <Link to="/signup" className="register-btn ortak">
           Kayıt Ol
         </Link>
         <br></br>

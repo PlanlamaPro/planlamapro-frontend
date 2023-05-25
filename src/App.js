@@ -1,7 +1,7 @@
 import MainScreen from "./Mainscreen/MainScreen";
 import HomePage from "./components/HomePage";
-import SignIn from "./components/SignIn";
-import Signup from "./components/SignUp";
+import SignUp from "./components/Signup";
+import Login from "./components/Login";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EventRoom from "./pages/EventRoom";
@@ -18,8 +18,8 @@ function App() {
           <Route path="/roomCreate" element={<h1>Oda Oluştur</h1>} />
           <Route path="/myRooms" element={<h1>Odalarım</h1>} />
           <Route path="/profile" element={<h1>Profil</h1>} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </div>

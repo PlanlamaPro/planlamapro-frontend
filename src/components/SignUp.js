@@ -2,35 +2,50 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import { Select, MenuItem } from "@mui/material";
 import "../styles/SignUp.css";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { updateInfos, saveJwt } from "../Redux/Slices/signupSlice";
+import { useEffect } from "react";
 
-export default function Signup() {
-  const [username, setUserName] = React.useState("");
-  const [password, setPassword] = React.useState("");
+export default function SignUp() {
+  const dispatcher = useDispatch();
+  const signupData = useSelector((state) => state.sgnSlc.sgnInfo);
+
+  const signupJwt = useSelector((state) => state.sgnSlc.jwtToken);
 
   const navigator = useNavigate();
 
-  const handleChangeUsername = (event) => {
-    setUserName(event.target.value);
+  const handleSignupChange = (event) => {
+    const key = event.target.name;
+    const value = event.target.value;
+    console.log(key, value);
+
+    dispatcher(updateInfos({ [key]: value }));
+
+    console.log(signupData);
   };
 
-  const handleChangePassword = (event) => {
-    setPassword(event.target.value);
-  };
-
-  function handleLogin() {
-    fetch("http://localhost:5000/user/login", {
+  function handleSignup() {
+    fetch("http://localhost:5000/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username,
-        password: password,
+        name: signupData.firstName,
+        surname: signupData.lastname,
+        age: 25,
+        username: signupData.username,
+        gender: signupData.gender,
+        password: signupData.password,
+        confirmPassword: signupData.confirmPassword,
       }),
     })
       .then((response) => response.json())
@@ -47,16 +62,21 @@ export default function Signup() {
               progress: undefined,
               theme: "light",
             })
-          : navigator("/mainpage");
+          : dispatcher(saveJwt({ token: data.token }));
       })
       .catch((error) => {
         // İstek sırasında bir hata oluştuğunda yapılabilecek işlemler
-        console.error(error);
       });
   }
 
+  useEffect(() => {
+    if (signupJwt !== undefined && signupJwt !== "") {
+      navigator("/mainpage");
+    }
+  }, [signupJwt, navigator]);
+
   return (
-    <Box>
+    <Box alignItems={"center"} alignContent={"center"}>
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -71,43 +91,118 @@ export default function Signup() {
       />
       <div className="border">
         <Typography variant="h4" align="center" gutterBottom>
-          Giriş Yap
+          Kayıt ol
         </Typography>
-        <TextField
-          onChange={handleChangeUsername}
-          fullWidth
-          value={username}
-          margin="normal"
-          id="username"
-          label="Kullanıcı Adı"
-          name="username"
-          size="small"
-        />{" "}
-        <br />
-        <TextField
-          onChange={handleChangePassword}
-          value={password}
-          fullWidth
-          margin="normal"
-          name="password"
-          label="Şifre"
-          type="password"
-          id="password"
-          size="small"
-        />
-        {/* <FormControlLabel
-          control={<Checkbox defaultChecked />}
-          label="Beni Hatırla"
-          style={{ fontSize: "2px" }}
-        /> */}
-        <Button variant="contained" onClick={handleLogin} fullWidth>
-          Giriş Yap
-        </Button>
-        {/* <div className='align'>
-                  <Link href="#" variant="body2">
-                    {"Şifremi unuttum"}
-                  </Link>
-              </div> */}
+        <Box component="form" noValidate sx={{ mt: 3 }}>
+          <Grid container spacing={1}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                value={signupData.firstName}
+                onChange={handleSignupChange}
+                name="firstName"
+                fullWidth
+                id="firstName"
+                label="Ad"
+                size="small"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                value={signupData.lastname}
+                onChange={handleSignupChange}
+                fullWidth
+                id="lastName"
+                label="Soyad"
+                name="lastname"
+                size="small"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                value={signupData.username}
+                onChange={handleSignupChange}
+                margin="dense"
+                name="username"
+                fullWidth
+                id="username"
+                label="Kullanıcı Adı"
+                size="small"
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                value={signupData.email}
+                onChange={handleSignupChange}
+                fullWidth
+                margin="dense"
+                id="email"
+                label="Email"
+                name="email"
+                size="small"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                value={signupData.password}
+                onChange={handleSignupChange}
+                fullWidth
+                margin="dense"
+                name="password"
+                label="Şifre"
+                type="password"
+                id="password"
+                size="small"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                value={signupData.confirmPassword}
+                onChange={handleSignupChange}
+                fullWidth
+                margin="dense"
+                name="confirmPassword"
+                label="Şifre Onay"
+                type="password"
+                id="confirmPassword"
+                size="small"
+              />
+            </Grid>
+            <Grid>
+              <Grid item xs={12}>
+                <Select
+                  sx={{ ml: 1, mt: 2 }}
+                  fullWidth
+                  name="gender"
+                  placeholder="Gender"
+                  margin="dense"
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={signupData.gender}
+                  label="Gender"
+                  onChange={handleSignupChange}>
+                  <MenuItem value={"Male"}>Male</MenuItem>
+                  <MenuItem value={"Female"}>Female</MenuItem>
+                </Select>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Button
+            onClick={handleSignup}
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}>
+            Kayıt ol
+          </Button>
+          <Grid container justifyContent="center">
+            <Grid>
+              Zaten hesabınız var mı?{" "}
+              <Link to="/signup" className="linkColor">
+                Giriş Yap
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
       </div>
     </Box>
   );
