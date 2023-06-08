@@ -41,7 +41,6 @@ export default function SignUp() {
       body: JSON.stringify({
         name: signupData.firstName,
         surname: signupData.lastname,
-        age: 25,
         username: signupData.username,
         gender: signupData.gender,
         password: signupData.password,
@@ -51,18 +50,21 @@ export default function SignUp() {
       .then((response) => response.json())
       .then((data) => {
         // İstek başarılı olduğunda yapılabilecek işlemler
-        data.token === undefined
-          ? toast.error(data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            })
-          : dispatcher(saveJwt({ token: data.token }));
+        if (data.token === undefined) {
+          toast.error(data.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          dispatcher(saveJwt({ token: data.token }));
+          localStorage.setItem("userId", data.user._id);
+        }
       })
       .catch((error) => {
         // İstek sırasında bir hata oluştuğunda yapılabilecek işlemler
@@ -71,7 +73,7 @@ export default function SignUp() {
 
   useEffect(() => {
     if (signupJwt !== undefined && signupJwt !== "") {
-      navigator("/mainpage");
+      navigator("/login");
     }
   }, [signupJwt, navigator]);
 

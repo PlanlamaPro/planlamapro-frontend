@@ -13,7 +13,6 @@ function StartNode() {
         position={Position.Right}
       />
       <h1 className={styles.start_node_header}>Etkinlik Başlangıcı</h1>
-      <p className={styles.start_node_time}>8:00-8:15</p>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import styles from "../styles/nodeStyles.module.css";
 import { Handle, Position } from "reactflow";
 import Tooltip from "./button";
 
-function AraNode() {
+function AraNode({ data }) {
   return (
     <div className={styles.ara_node_container}>
       <Handle
@@ -20,10 +20,13 @@ function AraNode() {
         isConnectable={true}
         position={Position.Right}
       />
-      <h1 className={styles.ara_node_header}>Kahvaltı</h1>
-      <p className={styles.ara_node_time}>8:15-9:00</p>
-      <p className={styles.ara_node_participant}>Katılımcı Sayısı: 25</p>
-      <Tooltip classname="button"></Tooltip>
+      <h1 className={styles.ara_node_header}>{data.header}</h1>
+      <p className={styles.ara_node_time}>{data.startHour}</p>
+      {data.description.length > 0 ? (
+        <Tooltip classname="button" desc={data.description}></Tooltip>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

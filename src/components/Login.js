@@ -40,18 +40,21 @@ export default function Login() {
       .then((response) => response.json())
       .then((data) => {
         // İstek başarılı olduğunda yapılabilecek işlemler
-        data.token === undefined
-          ? toast.error(data.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            })
-          : dispatcher(saveJwtLgn({ token: data.token }));
+        if (data.token === undefined) {
+          toast.error(data.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          dispatcher(saveJwtLgn({ token: data.token }));
+          localStorage.setItem("userId", data.user._id);
+        }
       })
       .catch((error) => {
         // İstek sırasında bir hata oluştuğunda yapılabilecek işlemler
@@ -60,7 +63,12 @@ export default function Login() {
   }
 
   useEffect(() => {
+    if (localStorage.getItem("token") !== null) {
+      navigator("/mainpage");
+    }
+
     if (loginJwt !== undefined && loginJwt !== "") {
+      localStorage.setItem("token", loginJwt);
       navigator("/mainpage");
     }
   }, [loginJwt, navigator]);
