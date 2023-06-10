@@ -77,11 +77,7 @@ function MainScreen(props) {
                     </div>
                 </div>
 
-                <div>
-                    <br></br>
-                    © 2023 PlanlamaPro Tüm hakları saklıdır.
-                    <br></br>
-                </div>
+                
                
             </div>
 

@@ -1,78 +1,93 @@
 .mainscreen{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    background-color: #dbeff9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #dbeff9;
+  
+      
     
-        
-      
-      
+    
 }
 .imgDiv{
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .mainimg{
-    width: 1024px;
-    height: auto;
+  width: 1024px;
+  height: auto;
 }
 
 .info{
-    display: flex;
-    
-    margin-right: 20%;
-    margin-left: 20%;
-    border-radius: 10px;
-    margin-top: 10px;
-    
-    background: linear-gradient(to right, #6dcbfa, #03618f);
-    
-    
-    
+  display: flex;
+  
+  margin-right: 20%;
+  margin-left: 20%;
+  border-radius: 10px;
+  margin-top: 10px;
+  
+  background: linear-gradient(to right, #6dcbfa, #03618f);
 }
 
 .infoImg{
-    width: 50%;
-    
+  width: 40%;  
 }
 
 .infoImg img{
-    width: 200px;
-    height: auto;
+  width: 200px;
+  height: auto;
 }
 
 .aboutImg{
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .infoTextLeft{
-    width: 50%;
-    margin-left: 20%; 
-    
+  width: 60%; 
+}
+
+.infoTextLeft h4{
+  margin-top: 3px;
+  color: white;
+  font-size: larger;
+}
+
+
+.infoTextLeft p{
+  text-align: center;
+  margin: revert;
+  margin-left: 5px;
 }
 .infoTextRight{
-    width: 50%;
-    margin-right: 20%; 
+  width: 60%;
+}
+.infoTextRight h4{
+  margin-top: 3px;
+  color: white;
+  font-size: larger;
+}
+.infoTextRight p{
+  text-align: center;
+  margin: revert;
+  margin-left: 5px;
 }
 
 .linkdiv{
-    width: 100px;
-    padding: 5px;
-    margin-bottom: 5px;
-    margin-left: 25%;
-    background-color: #122c39;
-    border-radius: 10px;
-    text-align: center;
-    color: black;
-    display: flex;
-    justify-content: center;
+  width: 100px;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: #122c39;
+  border-radius: 10px;
+  text-align: center;
+  color: black;
+  display: inline-block;
 }
 
 .linkdiv:hover{
-    background: linear-gradient(to right, #08a6f5, #03618f);
+  background: linear-gradient(to right, #08a6f5, #03618f);
 }
 
 .link{
-    text-decoration: none;
+  text-decoration: none;
 }
+

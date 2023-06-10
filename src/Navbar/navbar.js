@@ -4,13 +4,18 @@ import './navbar.css';
 import logo from '../Logo/planlamaproLogo.png';
 import logo2 from '../Logo/planlamaproLogoMini.png';
 import React, { useState, useEffect } from "react";
+//Son Eklenen
 import icon from '../Logo/button_icon.png';
+import { FaFacebook, FaTwitter, FaInstagram, FaTiktok, FaTelegram } from 'react-icons/fa';
+
 
 function App() {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showText, setShowText] = useState(true);
+  //yeni eklenti
   const [changeNav, setChangeNav] = useState(true);
+  //Bitiş
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -29,6 +34,7 @@ function App() {
 
   let logoSrc = windowWidth < 785 ? logo : logo2;
 
+  //Son Eklemeler
   useEffect(() => {
     if (windowWidth < 655) {
       setChangeNav(false);
@@ -43,15 +49,22 @@ function App() {
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
+  //Son Eklemeler
+
 
   return (  
-    <Router>     
+    <Router> 
+
+
+      
       {changeNav == true ? (
         <div className='router'>
-        <div className='logodiv'>
-          <img className='logo' src={logoSrc} alt="Logo" />
-          {showText && <h4 className='logoName'>PlanlamaPro</h4>}
-        </div>        
+          <div className='logodiv'>
+            <img className='logo' src={logoSrc} alt="Logo" />
+            {showText && <h4 className='logoName'>PlanlamaPro</h4>}
+          </div>
+      
+        
           <div className='navbar'>
             <nav>
               <ul className='navbar-list'>
@@ -147,43 +160,53 @@ function App() {
         </div>
       </div>
 
-    <footer className='footer'>
+      <footer className='footer'>
         <div className='container'>
           <div className='row'>
             
             <div className='col'>
-              <h4>Yararlı Linkler</h4>
+            <h4>Sayfalara Git</h4>
               <ul>
-                <li><a href='#'>Mert Büyükaksoy</a></li>
-                <li><a href='#'>Erdal Nayır</a></li>
-                <li><a href='#'>Ahmet</a></li>
+                <li><a href='#'>Anasayfa</a></li>
+                <li><a href='#'>Hakkımızda</a></li>
+                <li><a href='#'>Oda Oluştur</a></li>
+                <li><a href='#'>Odalarım</a></li>
+                <li><a href='#'>Profil</a></li>
               </ul>
             </div>
             <div className='col'>
-              <h4>Yararlı Linkler</h4>
+              <h4>Bizimle İletişime Geçin</h4>
               <ul>
                 
+                <li><a href='#'>Mert Büyükaksoy</a></li>
+                <li><a href='#'>Erdal Nayır</a></li>
                 <li><a href='#'>Mustafa Erhan Portakal</a></li>
+                <li><a href='#'>Ahmet</a></li>
                 <li><a href='#'>Eda Dural</a></li>
               </ul>
             </div>
+            
             <div className='col'>
-              <h4>Bizi Takip Edin</h4>
-              <div className='social-links'>
-                <a href='#'><i className='fab fa-facebook-f'></i></a>
-                <a href='#'><i className='fab fa-facebook-f'></i></a>
-                <a href='#'><i className='fab fa-facebook-f'></i></a>
-                <a href='#'><i className='fab fa-facebook-f'></i></a>
-              </div>
+              <h4>Sosyal Medya</h4>
+              <ul>
+                <li><a href='#'><FaFacebook /> Facebook</a></li>
+                <li><a href='#'><FaTwitter /> Twitter</a></li>
+                <li><a href='#'><FaInstagram /> Instagram</a></li>
+                <li><a href='#'><FaTiktok /> TikTok</a></li>
+                <li><a href='#'><FaTelegram /> Telegram</a></li>
+              </ul>
             </div>
-            <div className='col lib'>
-              © 2023 PlanlamaPro Tüm hakları saklıdır.
-            </div>
+            
+            
             
           </div>
         </div>
-            
-      </footer>      
+        
+            <div className='lib'>
+              © 2023 PlanlamaPro Tüm hakları saklıdır.
+            </div>
+      </footer>
+      
       
     </Router>
 
