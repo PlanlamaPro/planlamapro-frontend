@@ -167,22 +167,22 @@ function App() {
             <div className='col'>
             <h4>Sayfalara Git</h4>
               <ul>
-                <li><a href='#'>Anasayfa</a></li>
-                <li><a href='#'>Hakkımızda</a></li>
-                <li><a href='#'>Oda Oluştur</a></li>
-                <li><a href='#'>Odalarım</a></li>
-                <li><a href='#'>Profil</a></li>
+                <li><Link to="/">Anasayfa</Link></li>
+                <li><Link to="/">Hakkımızda</Link></li>
+                <li><Link to="/">Oda Oluştur</Link></li>
+                <li><Link to="/">Odalarım</Link></li>
+                <li><Link to="/">Profil</Link></li>
               </ul>
             </div>
             <div className='col'>
               <h4>Bizimle İletişime Geçin</h4>
               <ul>
                 
-                <li><a href='#'>Mert Büyükaksoy</a></li>
-                <li><a href='#'>Erdal Nayır</a></li>
-                <li><a href='#'>Mustafa Erhan Portakal</a></li>
-                <li><a href='#'>Ahmet</a></li>
-                <li><a href='#'>Eda Dural</a></li>
+                <li><a href='https://www.linkedin.com/in/mert-büyükaksoy-8654aa201/'>Mert Büyükaksoy</a></li>
+                <li><a href='https://www.linkedin.com/in/erdal-nayir-9754281b1/'>Erdal Nayır</a></li>
+                <li><a href='https://www.linkedin.com/in/mustafa-erhan-portakal-2142101ba/'>Mustafa Erhan Portakal</a></li>
+                <li><a href='https://www.linkedin.com/in/ahmet-yıldırım-6bb7271ba/'>Ahmet Yıldırım</a></li>
+                <li><a href='https://www.linkedin.com/in/eda-dural-b980151b7/'>Eda Dural</a></li>
               </ul>
             </div>
             
