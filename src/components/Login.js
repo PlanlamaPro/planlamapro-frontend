@@ -54,6 +54,7 @@ export default function Login() {
         } else {
           dispatcher(saveJwtLgn({ token: data.token }));
           localStorage.setItem("userId", data.user._id);
+          localStorage.setItem("username", data.user.username);
         }
       })
       .catch((error) => {

@@ -2,12 +2,29 @@ import React, { useEffect, useState } from "react";
 import RoomCard from "../components/RoomCard";
 import InvitedRoomCard from "../components/InvitedRoomCard";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { changeNodes } from "../Redux/Slices/roomSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
 function MyRooms() {
   const [rooms, setRooms] = useState([]);
   const [invitedRooms, setInvitedRooms] = useState([]);
 
+  const dispatcher = useDispatch();
+
   useEffect(() => {
+    dispatcher(
+      changeNodes({
+        nodes: [
+          {
+            id: nanoid(),
+            type: "startEvent",
+            position: { x: 150, y: -50 },
+          },
+        ],
+      })
+    );
+
     // JWT token'ınızı alın veya oluşturun
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");

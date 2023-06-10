@@ -6,15 +6,18 @@ import { useDispatch, useSelector } from "react-redux";
 import AddMemberForm from "../components/AddMemeberForm";
 import { addReduxNode, changeIsSaved } from "../Redux/Slices/roomSlice";
 import { nanoid } from "@reduxjs/toolkit";
+import { useNavigate } from "react-router-dom";
 
 function EventRoom() {
   const dispatcher = useDispatch();
 
   const [show, setShow] = useState(false);
+  const navigator = useNavigate();
 
   const roomData = useSelector((state) => state.rmmSlc.roomData);
+
   const isFinished = useSelector((state) => state.rmmSlc.isFinished);
-  const [member, setMember] = useState(roomData.members.length);
+  const [member, setMember] = useState(roomData.members.length ?? 0);
 
   const status = useSelector((state) => state.rmmSlc.status);
   const newMember = useSelector((state) => state.rmmSlc.newMember);
@@ -41,9 +44,13 @@ function EventRoom() {
     dispatcher(changeIsSaved());
   }
 
+  function handleMemory() {
+    navigator("/memory");
+  }
+
   useEffect(() => {
     setShow(false);
-    setMember(member + 1);
+    setMember(member);
   }, [newMember]);
   return (
     <div className="overflow-hidden">
@@ -106,7 +113,9 @@ function EventRoom() {
                   className="bg-[#abb8f5] pt-2 pb-2 mb-2 sm:mb-0 pr-10 pl-10 ml-1 mr-1 rounded-md text-white font-bold text-lg  hover:bg-[#6e7bba] transition ease-in-out">
                   Odadaki Kişiler: {member}
                 </button>
-                <button className="bg-[#9ee7ff] pt-2 pb-2 pr-10 pl-10 ml-1 mr-1 rounded-md text-white font-bold text-lg  hover:bg-[#66b8d4] transition ease-in-out">
+                <button
+                  onClick={handleMemory}
+                  className="bg-[#9ee7ff] pt-2 pb-2 pr-10 pl-10 ml-1 mr-1 rounded-md text-white font-bold text-lg  hover:bg-[#66b8d4] transition ease-in-out">
                   Anılar
                 </button>
               </div>

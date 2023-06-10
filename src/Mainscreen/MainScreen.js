@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { saveJwt } from "../Redux/Slices/signupSlice";
 import { saveJwtLgn } from "../Redux/Slices/loginSlice";
 import { useDispatch } from "react-redux";
+import Footer from "../components/footer";
 
 function MainScreen(props) {
   const navigator = useNavigate();
@@ -19,6 +20,7 @@ function MainScreen(props) {
   function handleLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
+    localStorage.removeItem("username");
     dispatcher(saveJwt({ token: "" }));
     dispatcher(saveJwtLgn({ token: "" }));
     navigator("/");
@@ -50,7 +52,7 @@ function MainScreen(props) {
                 aşağıdaki hakkımızda butonuna tıklayabilirsiniz
               </p>
               <div className="linkdiv">
-                <Link to="/" className="link">
+                <Link to="/hakkimizda" className="link">
                   Hakkımızda
                 </Link>
               </div>
@@ -103,11 +105,11 @@ function MainScreen(props) {
           </div>
 
           <div>
-            <br></br>© 2023 PlanlamaPro Tüm hakları saklıdır.
             <br></br>
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

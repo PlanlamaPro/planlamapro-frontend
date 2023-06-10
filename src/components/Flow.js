@@ -110,42 +110,6 @@ function Flow() {
         }
       })
       .catch((error) => {});
-
-    if (status === "edit") {
-      axios
-        .post(
-          "http://localhost:5000/node/deletenodes",
-          { roomId: roomData._id },
-          {
-            headers: {
-              Authorization: `Bearer ${jwtToken}`,
-            },
-          }
-        )
-        .then((response) => {
-          console.log("Node'lar silindi");
-        })
-        .catch((error) => {
-          console.log("Node'lar silinirken hata oluştu");
-        });
-
-      axios
-        .post(
-          "http://localhost:5000/edges/deleteedges",
-          { roomId: roomData._id },
-          {
-            headers: {
-              Authorization: `Bearer ${jwtToken}`,
-            },
-          }
-        )
-        .then((response) => {
-          console.log("Edge'ler silindi");
-        })
-        .catch((error) => {
-          console.log("Edge'ler silinirken hata oluştu");
-        });
-    }
   }, []);
 
   useEffect(() => {
@@ -155,6 +119,43 @@ function Flow() {
 
   useEffect(() => {
     if (isSaved) {
+      const jwtToken = localStorage.getItem("token");
+      if (status === "edit") {
+        axios
+          .post(
+            "http://localhost:5000/node/deletenodes",
+            { roomId: roomData._id },
+            {
+              headers: {
+                Authorization: `Bearer ${jwtToken}`,
+              },
+            }
+          )
+          .then((response) => {
+            console.log("Node'lar silindi");
+          })
+          .catch((error) => {
+            console.log("Node'lar silinirken hata oluştu");
+          });
+
+        axios
+          .post(
+            "http://localhost:5000/edges/deleteedges",
+            { roomId: roomData._id },
+            {
+              headers: {
+                Authorization: `Bearer ${jwtToken}`,
+              },
+            }
+          )
+          .then((response) => {
+            console.log("Edge'ler silindi");
+          })
+          .catch((error) => {
+            console.log("Edge'ler silinirken hata oluştu");
+          });
+      }
+
       nodes.map(async (node) => {
         if (node.type === "startEvent") {
           const nodeData = {
@@ -166,8 +167,6 @@ function Flow() {
             startHour: "12:00",
             roomId: roomData._id,
           };
-
-          const jwtToken = localStorage.getItem("token");
 
           // Axios POST isteği gönderme
           await axios
@@ -192,8 +191,6 @@ function Flow() {
             startHour: "12:00",
             roomId: roomData._id,
           };
-
-          const jwtToken = localStorage.getItem("token");
 
           // Axios POST isteği gönderme
           await axios
@@ -220,7 +217,6 @@ function Flow() {
           };
 
           // JWT token'ınızı bir değişkende saklayın
-          const jwtToken = localStorage.getItem("token");
 
           // Axios POST isteği gönderme
           await axios
