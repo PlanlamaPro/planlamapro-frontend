@@ -286,6 +286,13 @@
     z-index: 1; /* Add this line */
   }
   
+
+  @media only screen and (max-width: 966px) {
+    .col{
+      width: 90%;
+      margin-bottom: 20px;
+    }
+  }
   
   
   

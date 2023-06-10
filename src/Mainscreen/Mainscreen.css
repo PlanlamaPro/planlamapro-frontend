@@ -72,6 +72,32 @@
   margin-left: 5px;
 }
 
+@media only screen and (max-width: 966px) {
+  .info{
+    display: block;
+  }
+  .infoImg{
+    width: 90%;  
+  }
+  .infoImg img{
+    width: auto;
+    height: 200px;
+  }
+  
+  .aboutImg{
+    margin-top: 50px;
+  }
+  
+  .infoTextLeft{
+    width: 90%; 
+  }
+  
+  .infoTextRight{
+    width: 90%;
+  }
+  
+}
+
 .linkdiv{
   width: 100px;
   padding: 5px;

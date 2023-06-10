@@ -6,15 +6,43 @@ import secondImg from '../Photo/pngwing.com.png';
 import planningImg from '../Photo/planning.png';
 import aboutImg from '../Photo/hakkimizda.png'
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function MainScreen(props) {
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [imageWidth, setImageWidth] = useState('100%');
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (windowWidth >= 1200) {
+      setImageWidth('30%');
+    } else if (windowWidth >= 768) {
+      setImageWidth('50%');
+    } else {
+      setImageWidth('100%');
+    }
+  }, [windowWidth]);
+
+    
     return (
         
 
         
         <div className='mainscreen'>
             <div className='imgDiv'>
-                <img className='mainimg' src={mainImg} alt="Resim açıklaması" />
+                <img className='mainimg' src={mainImg} alt="Resim açıklaması"  style={{ width: imageWidth}} />
             </div>
 
             <div>
